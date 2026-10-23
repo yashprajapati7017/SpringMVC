@@ -122,7 +122,7 @@ public class Controler {
 
         return "edit01";
     }
-    @RequestMapping(value = "/updateProfile",method = RequestMethod.GET)
+    @RequestMapping(value = "/updateProfile",method = RequestMethod.POST)
     public String updateProfile(@ModelAttribute("user") User user, Model model){
 
         System.out.println("updateProfile");
@@ -130,7 +130,7 @@ public class Controler {
             model.addAttribute("user",user);
             return "user01";
         }else{
-            return "userLogin";
+            return "redirect:/help";
         }
 
     }
