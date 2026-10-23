@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
 public class Controler {
@@ -94,7 +95,44 @@ public class Controler {
             System.out.println("Delete Success");
             return "userDelete";
         }
-        return "index";
+        return "userDelete";
+    }
+
+    @RequestMapping("/editStudent")
+    public String editStudent(){
+        System.out.println("editStudent");
+        return "edit";
+    }
+
+    @RequestMapping("/userEdit")
+    public String userEdit(@RequestParam("userFetchId") int id,@RequestParam("userFetchPassword") String password,Model model){
+
+
+        User user = userService.update(id, password);
+
+        if (user == null) {
+            model.addAttribute("message",
+                    "Invalid Student ID or Password");
+
+            return "searchStudent";
+        }
+
+        model.addAttribute("user", user);
+
+
+        return "edit01";
+    }
+    @RequestMapping(value = "/updateProfile",method = RequestMethod.GET)
+    public String updateProfile(@ModelAttribute("user") User user, Model model){
+
+        System.out.println("updateProfile");
+        if(userService.UserProfile(user)){
+            model.addAttribute("user",user);
+            return "user01";
+        }else{
+            return "userLogin";
+        }
+
     }
 
 }

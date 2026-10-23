@@ -48,4 +48,25 @@ public class UserService {
         int result=dao.deleteStudent(id,password);
         return result;
     }
+
+    public User update(int id,String password){
+        User fetchUser= (User) dao.updateUser(id);
+
+        if (fetchUser == null) {
+            return null;
+        }
+
+        if (!password.equals(fetchUser.getUserPassword())) {
+            return null;
+        }
+        else{
+            return fetchUser;
+        }
+    }
+
+    public boolean UserProfile(User user){
+
+       return dao.updateProfile(user);
+    }
+
 }

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,22 +14,40 @@
                 <td align="left" width="10%">
                     <font color="white" size="7">&#127891;</font>
                 </td>
+
                 <td align="center">
                     <font color="white" size="6">
                         <b>Student Management System</b>
                     </font>
                 </td>
+
                 <td align="right" width="25%">
+
+                    <!-- Edit Student Option -->
+                    <a href="editStudent"
+                       style="background-color:#2878D0;
+                              color:white;
+                              padding:6px 10px;
+                              text-decoration:none;
+                              font-size:14px;
+                              border-radius:5px;">
+                        &#9998; Edit Student
+                    </a>
+
+                    <br><br>
+
                     <font color="white" size="3">
                         <i>Learn | Grow | Build Your Future</i>
                     </font>
+
                 </td>
             </tr>
         </table>
 
         <br><br><br>
 
-        <table width="80%" bgcolor="white" cellpadding="50" cellspacing="10" border="1">
+        <table width="80%" bgcolor="white" cellpadding="50"
+               cellspacing="10" border="1">
             <tr>
                 <td align="center">
 
@@ -46,6 +65,7 @@
 
                     <table width="100%" cellpadding="25" cellspacing="10">
                         <tr>
+
                             <td align="center" bgcolor="#2878D0" width="25%">
                                 <font color="white" size="7">&#128100;</font>
                                 <br><br>
@@ -85,6 +105,7 @@
                                     </font>
                                 </a>
                             </td>
+
                         </tr>
                     </table>
 

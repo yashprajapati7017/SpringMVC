@@ -45,4 +45,31 @@ public class Dao {
         return 1;
     }
 
+    public User updateUser(int id){
+       return (User)hibernateTemplate.get(User.class,id);
+    }
+
+    @Transactional
+    public boolean updateProfile(User formUser){
+
+        User existingUser = hibernateTemplate.get(
+                User.class, formUser.getId()
+        );
+
+        if (existingUser == null) {
+            return false;
+        }
+
+        existingUser.setUserName(formUser.getUserName());
+        existingUser.setUserEmail(formUser.getUserEmail());
+        existingUser.setUserPassword(formUser.getUserPassword());
+        existingUser.setGender(formUser.getGender());
+        existingUser.setUserCourse(formUser.getUserCourse());
+        existingUser.setDate(formUser.getDate());
+
+        hibernateTemplate.update(existingUser);
+
+        return true;
+    }
+
 }
